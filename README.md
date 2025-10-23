@@ -47,28 +47,38 @@
 ```
 abc-management-website/
 ├── index.html                    # 首页（已添加增强功能）
-├── about-us.html                 # 子页面
-├── leadership.html
-├── values.html
-├── investment-solutions.html
-├── portfolio-management.html
-├── advisory-services.html
-├── news.html
-├── research.html
-├── market-commentary.html
-├── contact.html
-├── animations.js                 # 所有交互功能
-├── enhanced-styles.css           # 暗色模式和动画样式
-└── README.md                     # 本文件
+├── README.md                     # 本文件
+│
+├── pages/                        # 所有子页面
+│   ├── about-us.html            # 已更新增强功能 ✅
+│   ├── leadership.html           # 待更新
+│   ├── values.html               # 待更新
+│   ├── investment-solutions.html # 待更新
+│   ├── portfolio-management.html # 待更新
+│   ├── advisory-services.html    # 待更新
+│   ├── news.html                 # 待更新
+│   ├── research.html             # 待更新
+│   ├── market-commentary.html    # 待更新
+│   └── contact.html              # 待更新
+│
+└── assets/                       # 静态资源
+    ├── css/
+    │   └── enhanced-styles.css   # 暗色模式和动画样式
+    ├── js/
+    │   └── animations.js         # 所有交互功能
+    └── images/                   # 图片目录（供未来使用）
+        ├── hero/
+        ├── team/
+        └── icons/
 ```
 
 ## ⚙️ 为其他页面添加增强功能
 
-首页（`index.html`）已经完整集成了所有增强功能。要为其他页面添加相同的功能，需要进行以下更新：
+**首页（`index.html`）** 和 **`pages/about-us.html`** 已经完整集成了所有增强功能。其他9个子页面需要类似的更新。
 
 ### 步骤 1: 更新 head 部分
 
-在每个页面的 `<script>` 标签中添加 `darkMode: 'class'`：
+在每个页面的 `<script>` 标签中添加 `darkMode: 'class'` 和 CSS 引用：
 
 ```html
 <script>
@@ -87,7 +97,7 @@ abc-management-website/
         }
     }
 </script>
-<link rel="stylesheet" href="enhanced-styles.css">  <!-- 添加这一行 -->
+<link rel="stylesheet" href="../assets/css/enhanced-styles.css">  <!-- 添加这一行 -->
 ```
 
 ### 步骤 2: 添加暗色模式切换按钮
@@ -108,12 +118,14 @@ abc-management-website/
 
 ### 步骤 3: 引入 JavaScript 文件
 
-在 `</body>` 标签前替换或添加：
+在 `</body>` 标签前替换现有的 `<script>` 标签（或添加）：
 
 ```html
 <!-- Enhanced Animations & Interactions -->
-<script src="animations.js"></script>
+<script src="../assets/js/animations.js"></script>
 ```
+
+> **注意**：子页面使用 `../assets/` 而首页使用 `assets/`（因为路径不同）
 
 ### 步骤 4: 添加滚动动画类（可选）
 
