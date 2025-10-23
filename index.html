@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Management - Leading Investment Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f8f9fa',
+                            100: '#e9ecef',
+                            900: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="enhanced-styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #6b7280;
+        }
+
+        .dropdown {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #374151;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold text-gray-900">ABC Management</a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="nav-item relative">
+                        <button class="nav-link text-gray-900 font-medium">The Firm</button>
+                        <div class="dropdown absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                            <a href="about-us.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">About Us</a>
+                            <a href="leadership.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Leadership</a>
+                            <a href="values.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Our Values</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item relative">
+                        <button class="nav-link text-gray-900 font-medium">What We Do</button>
+                        <div class="dropdown absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                            <a href="investment-solutions.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Investment Solutions</a>
+                            <a href="portfolio-management.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Portfolio Management</a>
+                            <a href="advisory-services.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Advisory Services</a>
+                        </div>
+                    </div>
+
+                    <div class="nav-item relative">
+                        <button class="nav-link text-gray-900 font-medium">Insights</button>
+                        <div class="dropdown absolute top-full left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2">
+                            <a href="news.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">News</a>
+                            <a href="research.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Research</a>
+                            <a href="market-commentary.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Market Commentary</a>
+                        </div>
+                    </div>
+
+                    <a href="contact.html" class="nav-link text-gray-900 font-medium">Contact</a>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" aria-label="Toggle dark mode" class="text-gray-900">
+                        <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </button>
+
+                    <button class="btn-primary bg-gray-900 text-white px-6 py-2.5 rounded-md font-medium">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-gray-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel Section -->
+    <section id="heroCarousel" class="relative h-screen overflow-hidden">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+                <div class="absolute inset-0 opacity-20" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="relative z-10 h-full flex items-center justify-center">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight fade-in-up">
+                        Building Value,<br/>Delivering Excellence
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto fade-in-up">
+                        Leading investment management firm dedicated to creating sustainable growth and exceptional returns for our clients
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-up">
+                        <a href="#solutions" class="btn-primary bg-white text-gray-900 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100">
+                            Explore Solutions
+                        </a>
+                        <a href="about-us.html" class="border-2 border-white text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-gray-900">
+                <div class="absolute inset-0 opacity-30" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="relative z-10 h-full flex items-center justify-center">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                        Innovation Drives<br/>Our Strategy
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
+                        Investing in cutting-edge technology and transformative businesses that shape tomorrow's markets
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="investment-solutions.html" class="btn-primary bg-white text-gray-900 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100">
+                            View Strategies
+                        </a>
+                        <a href="research.html" class="border-2 border-white text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
+                            Read Research
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide hidden">
+            <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 via-teal-900 to-gray-900">
+                <div class="absolute inset-0 opacity-25" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920'); background-size: cover; background-position: center;"></div>
+            </div>
+            <div class="relative z-10 h-full flex items-center justify-center">
+                <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                        Sustainable Growth<br/>For Future Generations
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
+                        Balancing financial performance with environmental responsibility and social impact
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="portfolio-management.html" class="btn-primary bg-white text-gray-900 px-8 py-4 rounded-md font-semibold text-lg hover:bg-gray-100">
+                            Our Approach
+                        </a>
+                        <a href="contact.html" class="border-2 border-white text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-24 left-1/2 transform -translate-x-1/2 z-10">
+            <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="fade-in-up">
+                    <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-2">$XXB</div>
+                    <div class="text-lg text-gray-600">Assets Under Management</div>
+                </div>
+                <div class="fade-in-up">
+                    <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-2">XX+</div>
+                    <div class="text-lg text-gray-600">Years of Excellence</div>
+                </div>
+                <div class="fade-in-up">
+                    <div class="text-5xl md:text-6xl font-bold text-gray-900 mb-2">XXX+</div>
+                    <div class="text-lg text-gray-600">Portfolio Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content Carousel -->
+    <section id="solutions" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Our Focus Areas</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Identifying opportunities and investing at scale across emerging sectors
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-lg fade-in-up image-zoom-hover">
+                    <div class="h-64 bg-gradient-to-br from-gray-800 to-gray-600" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8">
+                        <div class="text-sm font-semibold text-gray-500 mb-2">TECHNOLOGY</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Digital Infrastructure</h3>
+                        <p class="text-gray-600 mb-6">
+                            Investing in the backbone of tomorrow's digital economy, from data centers to cloud infrastructure.
+                        </p>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-gray-600 transition-colors">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-lg fade-in-up image-zoom-hover">
+                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-500" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8">
+                        <div class="text-sm font-semibold text-gray-500 mb-2">INNOVATION</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Growth Ventures</h3>
+                        <p class="text-gray-600 mb-6">
+                            Partnering with visionary companies that are reshaping industries and creating new markets.
+                        </p>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-gray-600 transition-colors">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-hover bg-white rounded-lg overflow-hidden shadow-lg fade-in-up image-zoom-hover">
+                    <div class="h-64 bg-gradient-to-br from-gray-600 to-gray-800" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800'); background-size: cover; background-position: center;"></div>
+                    <div class="p-8">
+                        <div class="text-sm font-semibold text-gray-500 mb-2">SUSTAINABILITY</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Future Assets</h3>
+                        <p class="text-gray-600 mb-6">
+                            Building sustainable portfolios that deliver both financial returns and positive impact.
+                        </p>
+                        <a href="#" class="text-gray-900 font-semibold hover:text-gray-600 transition-colors">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Philosophy Section -->
+    <section class="py-24 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        Investment Philosophy Built on Insight
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        We combine deep sector expertise with disciplined analysis to identify opportunities others miss. Our approach is rooted in rigorous research, strategic thinking, and a commitment to long-term value creation.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Data-Driven Decisions</h3>
+                                <p class="text-gray-400">Leveraging advanced analytics and market intelligence to inform every investment decision.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Long-Term Partnership</h3>
+                                <p class="text-gray-400">Building enduring relationships with management teams to drive sustainable growth.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Risk Management</h3>
+                                <p class="text-gray-400">Sophisticated risk frameworks that protect capital while pursuing growth opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-square rounded-lg overflow-hidden shadow-2xl">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800'); background-size: cover; background-position: center;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Insights -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Latest Insights</h2>
+                    <p class="text-xl text-gray-600">Perspectives from our investment professionals</p>
+                </div>
+                <a href="#" class="hidden md:block text-gray-900 font-semibold hover:text-gray-600 transition-colors">
+                    View All Insights →
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="card-hover group cursor-pointer">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600" style="background-image: url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600'); background-size: cover; background-position: center;"></div>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-500 mb-2">MARKET COMMENTARY</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600 transition-colors">
+                        Navigating Market Volatility in 2025
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                        Our Chief Investment Officer shares insights on positioning portfolios for continued uncertainty.
+                    </p>
+                    <div class="text-sm text-gray-500">March 15, 2025</div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="card-hover group cursor-pointer">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700" style="background-image: url('https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600'); background-size: cover; background-position: center;"></div>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-500 mb-2">RESEARCH</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600 transition-colors">
+                        The Future of Infrastructure Investment
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                        Exploring emerging opportunities in sustainable infrastructure and digital transformation.
+                    </p>
+                    <div class="text-sm text-gray-500">March 10, 2025</div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="card-hover group cursor-pointer">
+                    <div class="h-48 bg-gray-200 rounded-lg mb-4 overflow-hidden">
+                        <div class="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=600'); background-size: cover; background-position: center;"></div>
+                    </div>
+                    <div class="text-sm font-semibold text-gray-500 mb-2">LEADERSHIP</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-600 transition-colors">
+                        Building Resilient Organizations
+                    </h3>
+                    <p class="text-gray-600 mb-4">
+                        How we partner with management teams to create value through operational excellence.
+                    </p>
+                    <div class="text-sm text-gray-500">March 5, 2025</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+                <p class="text-xl text-gray-600">
+                    Connect with our team to learn more about our investment solutions
+                </p>
+            </div>
+
+            <form class="bg-white rounded-lg shadow-lg p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="John">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="john.doe@example.com">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="Company Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Job Title</label>
+                        <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="Chief Investment Officer">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                    <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent" placeholder="Tell us about your investment needs..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary w-full bg-gray-900 text-white px-8 py-4 rounded-md font-semibold text-lg">
+                    Submit Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div class="md:col-span-1">
+                    <h3 class="text-2xl font-bold mb-4">ABC Management</h3>
+                    <p class="text-gray-400 mb-6">
+                        Leading investment management solutions for institutional and individual investors.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">The Firm</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about-us.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="leadership.html" class="text-gray-400 hover:text-white transition-colors">Leadership</a></li>
+                        <li><a href="values.html" class="text-gray-400 hover:text-white transition-colors">Our Values</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Office Locations</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Solutions</h4>
+                    <ul class="space-y-2">
+                        <li><a href="investment-solutions.html" class="text-gray-400 hover:text-white transition-colors">Investment Solutions</a></li>
+                        <li><a href="portfolio-management.html" class="text-gray-400 hover:text-white transition-colors">Portfolio Management</a></li>
+                        <li><a href="advisory-services.html" class="text-gray-400 hover:text-white transition-colors">Advisory Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Client Resources</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="news.html" class="text-gray-400 hover:text-white transition-colors">News</a></li>
+                        <li><a href="research.html" class="text-gray-400 hover:text-white transition-colors">Research</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Investor Login</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; 2025 ABC Management. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Use</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Disclosures</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Animations & Interactions -->
+    <script src="animations.js"></script>
+</body>
+</html>
