@@ -1,207 +1,142 @@
-# ABC Management Website
+# Divit Finance 企业官网模板（静态站点）
 
-一个基于 Tailwind CSS 的专业投资管理公司展示网站，灵感来自 Blackstone 的设计风格。
+一个基于 Tailwind CSS + 原生 JavaScript 的专业另类资产管理公司展示网站模板（灵感参考 Blackstone 等一线资管官网）。
 
-## 🎨 特性
+## 🎯 概览
 
-### ✅ 已实现
-- **11 个完整页面**：首页 + 10 个子页面
-- **响应式设计**：完美适配桌面和移动设备
-- **统一设计语言**：所有页面保持一致的视觉风格
-- **暗色模式** ⭐ NEW
-- **页面滚动动画** ⭐ NEW
-- **Hero 轮播图** ⭐ NEW
-- **增强悬停效果** ⭐ NEW
-- **返回顶部按钮** ⭐ NEW
+- 11 个页面：首页 + 10 个子页面（内容已填充）
+- 响应式设计：适配桌面与移动端
+- 增强交互：暗色模式、滚动动画、Hero 轮播、增强悬停、返回顶部按钮
+- 技术栈：Tailwind（CDN）、Vanilla JS、Google Fonts（Inter）
+- 品牌：Divit Finance（部分页面 `<title>` 仍有 “ABC Management” 残留，见“品牌统一清单”）
 
-### 📄 页面列表
-1. `index.html` - 首页（包含轮播图）
-2. `about-us.html` - 关于我们
-3. `leadership.html` - 领导团队
-4. `values.html` - 价值观
-5. `investment-solutions.html` - 投资解决方案
-6. `portfolio-management.html` - 投资组合管理
-7. `advisory-services.html` - 咨询服务
-8. `news.html` - 新闻
-9. `research.html` - 研究
-10. `market-commentary.html` - 市场评论
-11. `contact.html` - 联系我们
+## 📄 页面清单
 
-## 🚀 如何使用
+1. `index.html` — 首页（Hero 轮播 + 全部增强功能）
+2. `pages/about-us.html` — 关于我们（已启用暗色/动画）
+3. `pages/leadership.html` — 领导团队（6 位高管）
+4. `pages/values.html` — 价值观
+5. `pages/investment-solutions.html` — 投资解决方案
+6. `pages/portfolio-management.html` — 投资组合管理
+7. `pages/advisory-services.html` — 咨询服务
+8. `pages/news.html` — 新闻
+9. `pages/research.html` — 研究
+10. `pages/market-commentary.html` — 市场评论
+11. `pages/contact.html` — 联系我们
 
-### 1. 打开网站
-直接在浏览器中打开 `index.html` 即可查看网站。
+> 现状：除首页与 About Us 外，其余子页面默认仅加载基础样式（未引入增强 CSS/JS）。
 
-### 2. 测试功能
-- **轮播图**：首页 Hero 区域会自动切换（5秒），可以点击左右箭头或底部圆点手动切换
-- **暗色模式**：点击导航栏右侧的月亮/太阳图标切换
-- **滚动动画**：向下滚动页面查看元素淡入效果
-- **悬停效果**：鼠标悬停在卡片、按钮上查看交互效果
-- **返回顶部**：滚动到页面底部，右下角会出现返回顶部按钮
+## 🚀 快速开始
 
-### 3. 替换内容
-搜索 `[Placeholder:` 找到所有占位符内容并替换。
+- 直接用浏览器打开 `index.html` 预览；或
+- 在项目根目录启动本地静态服务器：
 
-## 📁 文件结构
-
-```
-abc-management-website/
-├── index.html                    # 首页（已添加增强功能）
-├── README.md                     # 本文件
-│
-├── pages/                        # 所有子页面
-│   ├── about-us.html            # 已更新增强功能 ✅
-│   ├── leadership.html           # 待更新
-│   ├── values.html               # 待更新
-│   ├── investment-solutions.html # 待更新
-│   ├── portfolio-management.html # 待更新
-│   ├── advisory-services.html    # 待更新
-│   ├── news.html                 # 待更新
-│   ├── research.html             # 待更新
-│   ├── market-commentary.html    # 待更新
-│   └── contact.html              # 待更新
-│
-└── assets/                       # 静态资源
-    ├── css/
-    │   └── enhanced-styles.css   # 暗色模式和动画样式
-    ├── js/
-    │   └── animations.js         # 所有交互功能
-    └── images/                   # 图片目录（供未来使用）
-        ├── hero/
-        ├── team/
-        └── icons/
+```bash
+python3 -m http.server 5173
+# 浏览器访问 http://localhost:5173
 ```
 
-## ⚙️ 为其他页面添加增强功能
+## 🧭 使用说明（关键交互）
 
-**首页（`index.html`）** 和 **`pages/about-us.html`** 已经完整集成了所有增强功能。其他9个子页面需要类似的更新。
+- 暗色模式：导航栏月亮/太阳按钮切换，偏好保存在 `localStorage`
+- 轮播图：自动播放（5s），支持箭头与圆点导航
+- 滚动动画：元素进入视窗淡入（可用 `fade-in-up`/`fade-in-left` 等类）
+- 返回顶部：页面右下角按钮在滚动后显示
 
-### 步骤 1: 更新 head 部分
+## ⚙️ 为子页面启用增强功能
 
-在每个页面的 `<script>` 标签中添加 `darkMode: 'class'` 和 CSS 引用：
+首页与 `pages/about-us.html` 已启用增强功能。若要在其他页面启用，按以下步骤：
+
+1) 在 `<head>` 中启用暗色模式并引入增强样式（子页面路径为 `../assets`）：
 
 ```html
 <script>
-    tailwind.config = {
-        darkMode: 'class',  <!-- 添加这一行 -->
-        theme: {
-            extend: {
-                colors: {
-                    primary: {
-                        50: '#f8f9fa',
-                        100: '#e9ecef',
-                        900: '#1a1a1a',
-                    }
-                }
-            }
-        }
-    }
+  tailwind.config = {
+    darkMode: 'class',
+    theme: { extend: { colors: { primary: { 50: '#f8f9fa', 100: '#e9ecef', 900: '#1a1a1a' } } } }
+  }
 </script>
-<link rel="stylesheet" href="../assets/css/enhanced-styles.css">  <!-- 添加这一行 -->
+<link rel="stylesheet" href="../assets/css/enhanced-styles.css" />
 ```
 
-### 步骤 2: 添加暗色模式切换按钮
-
-在导航栏中的 "Contact" 链接后、"Get Started" 按钮前添加：
+2) 在导航中（建议在 `Contact` 后、`Get Started` 前）加入暗色切换按钮：
 
 ```html
-<!-- Dark Mode Toggle -->
 <button id="darkModeToggle" aria-label="Toggle dark mode" class="text-gray-900">
-    <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
-    </svg>
-    <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-    </svg>
+  <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+  <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
 </button>
 ```
 
-### 步骤 3: 引入 JavaScript 文件
-
-在 `</body>` 标签前替换现有的 `<script>` 标签（或添加）：
+3) 在 `</body>` 前引入交互脚本：
 
 ```html
-<!-- Enhanced Animations & Interactions -->
 <script src="../assets/js/animations.js"></script>
 ```
 
-> **注意**：子页面使用 `../assets/` 而首页使用 `assets/`（因为路径不同）
+4) 为需要动画的元素添加类：`fade-in-up` / `fade-in` / `fade-in-left` / `fade-in-right`
 
-### 步骤 4: 添加滚动动画类（可选）
+> 路径提示：首页使用 `assets/`，子页面使用 `../assets/`。
 
-为需要动画效果的元素添加类名：
-- `fade-in-up` - 从下方淡入
-- `fade-in` - 直接淡入
-- `fade-in-left` - 从左侧淡入
-- `fade-in-right` - 从右侧淡入
+## 🧩 目录结构
 
-示例：
-```html
-<div class="fade-in-up">
-    <!-- 内容 -->
-</div>
+```
+abc-management-website/
+├── index.html
+├── README.md
+├── pages/
+│   ├── about-us.html
+│   ├── leadership.html
+│   ├── values.html
+│   ├── investment-solutions.html
+│   ├── portfolio-management.html
+│   ├── advisory-services.html
+│   ├── news.html
+│   ├── research.html
+│   ├── market-commentary.html
+│   └── contact.html
+└── assets/
+    ├── css/
+    │   └── enhanced-styles.css
+    └── js/
+        └── animations.js
 ```
 
-## 🎨 自定义配色
+## 🏢 公司与策略（模板文案）
 
-### 修改主题色
-编辑 `enhanced-styles.css` 中的 CSS 变量：
+- 定位：另类资产管理（Private Credit、Commercial Real Estate、Infrastructure）
+- 目标客户：高净值与机构投资者
+- 规模：$12B+ AUM；成立于 2010
 
-```css
-:root {
-    --bg-primary: #ffffff;
-    --text-primary: #111827;
-    /* 修改这些值... */
-}
+## 🎨 自定义与品牌统一
 
-.dark {
-    --bg-primary: #111827;
-    --text-primary: #f9fafb;
-    /* 修改暗色模式的值... */
-}
-```
+1) 自定义配色：编辑 `assets/css/enhanced-styles.css` 中的 CSS 变量（同时包含暗色变量）。
+2) 品牌统一清单：
+   - 将所有页面的 `<title>` 更新为 “… - Divit Finance”（部分页面仍为 “ABC Management”）。
+   - 如需替换品牌，全文搜索 “Divit Finance” 与 “ABC Management” 统一替换。
+   - 确认导航与页脚中的公司名一致。
 
-## 🔧 技术栈
+## ⚡ 性能与发布建议
 
-- **Tailwind CSS** - 通过 CDN 加载
-- **Vanilla JavaScript** - 无框架依赖
-- **Inter Font** - Google Fonts
-- **Unsplash Images** - 占位符图片
+- 图片本地化与压缩，添加 `loading="lazy"`
+- 生产建议使用构建版 Tailwind（Purge 未用样式）替代 CDN
+- 可部署至任意静态主机（GitHub Pages、Vercel、Netlify 等）
 
-## 📝 占位符说明
+## 🛠 技术栈
 
-所有需要替换的内容都使用 `[Placeholder: ...]` 格式标注，便于搜索和替换：
+- Tailwind CSS（CDN）
+- Vanilla JavaScript（无框架依赖）
+- Google Fonts（Inter）
 
-- `[Placeholder: Company introduction...]` - 公司介绍文字
-- `[Name]` - 人名
-- `[Title]` - 职位
-- `$XXB`、`XX+` - 统计数字
-- 图片 URL - 替换为自己的图片
+## 🔎 已知事项
 
-## ⚡ 性能提示
-
-1. **图片优化**：将 Unsplash 图片替换为优化后的本地图片
-2. **Tailwind 优化**：生产环境建议使用构建版本而非 CDN
-3. **懒加载**：为图片添加 `loading="lazy"` 属性
-
-## 🎯 适用场景
-
-这个网站模板适合：
-- ✅ 投资管理公司
-- ✅ 金融咨询公司
-- ✅ 资产管理公司
-- ✅ 私募股权公司
-- ✅ 其他需要专业、简洁展示的企业
-
-## 📞 支持
-
-如有问题或需要帮助，可以：
-1. 检查浏览器控制台是否有错误
-2. 确认所有文件都在同一目录
-3. 使用现代浏览器（Chrome、Firefox、Safari、Edge）
+- 子页面默认未引入增强 CSS/JS（按“为子页面启用增强功能”操作）
+- 个别页面 `<title>` 仍含 “ABC Management” 文案
 
 ---
 
-**版本**: 2.0
-**最后更新**: 2025年10月
-**许可**: 教育和展示目的
+版本：3.1  
+最后更新：2025-10  
+许可：教育和展示用途  
+公司（模板）：Divit Finance — Alternative Asset Management
+
