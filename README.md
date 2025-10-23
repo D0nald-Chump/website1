@@ -81,7 +81,7 @@ python3 -m http.server 5173
 ## 🧩 目录结构
 
 ```
-abc-management-website/
+divitfinance_web/
 ├── index.html
 ├── README.md
 ├── pages/
@@ -139,4 +139,3 @@ abc-management-website/
 最后更新：2025-10  
 许可：教育和展示用途  
 公司（模板）：Divit Finance — Alternative Asset Management
-
